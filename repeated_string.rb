@@ -22,12 +22,17 @@
 
 def repeatedString(s, n)
   newS = s.split('')
-  while (newS.length < n)
-    newS = [*newS, *s.split('')]
-  end
-  newS = newS.slice(0, 10)
-  newS.count('a')
+  s_length = newS.length
+  #find number of a's in s
+  as = newS.count('a')
+  #find how many s can we fit in n
+  times = n / s_length
+  #find the remainder
+  remainder = n % s_length
+
+  #find total number of a's
+  total_a = as * times + newS.slice(0, remainder).count('a')
 end
 
 puts repeatedString('aba', 10)
-puts repeatedString('a', 1000000000000)
+puts repeatedString('a', 10000000000000)
