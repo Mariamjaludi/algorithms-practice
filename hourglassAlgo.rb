@@ -43,4 +43,4 @@ def find_sum(arr)
   max_sum
 end
 
-puts findSum(testArr3)
+puts find_sum(testArr3)
