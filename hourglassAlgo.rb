@@ -27,22 +27,20 @@ testArr3 = [
   [0, 0, -1, -2, -4, 0]
 ]
 
-def findSum(arr)
-  maxSum = 0
-  arrLength = arr.length
+def find_sum(arr)
+  max_sum = 0
+  arr_length = arr.length
   i = 0
-  while (i < arrLength - 2 )
+  while i < arr_length - 2
     j = 0
-    while (j < arrLength - 2 )
+    while j < arr_length - 2
       sum = arr[i][j] + arr[i][j + 1] + arr[i][j + 2] + arr[i + 1][j + 1] + arr[i +2][j] + arr[i + 2][j + 1] + arr[i + 2][j + 2]
-      if i === 0 && j === 0 || sum > maxSum
-        maxSum = sum
-      end
+      (i.zero? && j.zero? || sum > max_sum) && (max_sum = sum)
       j += 1
     end
     i += 1
   end
-  maxSum
+  max_sum
 end
 
 puts findSum(testArr3)
