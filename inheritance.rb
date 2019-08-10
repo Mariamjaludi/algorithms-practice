@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# Person class is the Super class
 class Person
   def initialize(firstName, lastName, id)
     @firstName = firstName
@@ -12,6 +12,8 @@ class Person
   end
 end
 
+
+# Student inherits from Person Class
 class Student < Person
   def initialize(firstName, lastName, id, scores)
     super(firstName, lastName, id)
