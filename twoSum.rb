@@ -8,12 +8,12 @@ def two_sum(nums, target)
 
   return [] if nums.length < 2
 
-  lookup = {}
+  hash = {}
 
   for i in (0..nums.length - 1)
-      return [lookup[target - nums[i]], i] if lookup[target - nums[i]]
+      return [hash[target - nums[i]], i] if (hash[target - nums[i]] && hash[target - nums[i]] != i)
 
-      lookup[nums[i]] = i
+      hash[nums[i]] = i
   end
 
   []
