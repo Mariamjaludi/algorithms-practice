@@ -3,7 +3,6 @@ require 'pry'
 arr = [2, 7, 11, 15]
 target = 9
 
-
 def two_sum(nums, target)
   return [] if nums.length < 2
   hash = {}
