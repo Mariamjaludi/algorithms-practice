@@ -5,23 +5,40 @@ target = 9
 
 
 def two_sum(nums, target)
-  i = 0
-  answer = []
-  while i < nums.length
-    diff = target - nums[i]
-    # binding.pry
-    j = i + 1
-    while j < nums.length
-        if (nums[j] == diff)
-          # binding.pry
-            answer[0] = i
-            answer[1] = j
-        end
-        j += 1
-    end
-    i += 1
+
+  return [] if nums.length < 2
+
+  lookup = {}
+
+  for i in (0..nums.length - 1)
+      return [lookup[target - nums[i]], i] if lookup[target - nums[i]]
+
+      lookup[nums[i]] = i
   end
-  answer
+
+  []
+
+end
+
+  # i = 0
+  # answer = []
+  # return answer if nums.length < 2
+  #
+  # while i < nums.length
+  #   diff = target - nums[i]
+  #   # binding.pry
+  #   j = i + 1
+  #   while j < nums.length
+  #       if (nums[j] == diff)
+  #         # binding.pry
+  #           answer[0] = i
+  #           answer[1] = j
+  #       end
+  #       j += 1
+  #   end
+  #   i += 1
+  # end
+  # answer
 end
 
 puts two_sum(arr, target)
