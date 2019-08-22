@@ -30,9 +30,11 @@ class LinkedList:
     def length(self):
       current = self.head
       count = 0
-      while current.next != None:
+      if current != None:
         count += 1
-        current = current.next
+        while current.next != None:
+          count += 1
+          current = current.next
       return count
 
     # method to find a specific node in a linked list
