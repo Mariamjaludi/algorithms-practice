@@ -26,17 +26,6 @@ class LinkedList:
         current = current.next
       current.next = new_node
 
-    # method to find the length of a linked list
-    def length(self):
-      current = self.head
-      count = 0
-      if current != None:
-        count += 1
-        while current.next != None:
-          count += 1
-          current = current.next
-      return count
-
     # method to find a specific node in a linked list
     def search(self, data):
       current = self.head
@@ -76,3 +65,14 @@ class LinkedList:
         output += str(node.data) + " "
         node = node.next
       return output
+
+    # method to find the length of a linked list
+    def __len__(self):
+      current = self.head
+      count = 0
+      if current != None:
+        count += 1
+        while current.next != None:
+          count += 1
+          current = current.next
+      return count  
