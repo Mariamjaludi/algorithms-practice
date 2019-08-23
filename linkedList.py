@@ -91,3 +91,28 @@ class LinkedList:
             even = even.next
         odd.next = evenHead
         return self.head
+
+    def palindromeList(self):
+        if self.head == None or self.head.next == None:
+            return true
+
+        slow = self.head
+        fast = self.head
+
+        #find middle node
+        while fast.next:
+            slow = slow.next
+            fast = fast.next.next
+
+        # reverse the list at slow (slow is the half point)
+        slow = slow.reverse()
+
+        #check if each value in slow and in half the linked list are the same
+        fast = self.head
+        while slow.next:
+            if fast.data != slow.data:
+                return false
+            else:
+                fast = fast.next
+                slow = slow.next
+        return true
