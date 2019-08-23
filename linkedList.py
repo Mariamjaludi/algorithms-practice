@@ -12,6 +12,26 @@ class LinkedList:
     def __init__(self, head=None):
       self.head = head # Initialize head as null when list is created without a node
 
+    # method to stringify the linked list
+    def __str__(self):
+      node = self.head
+      output = ""
+      while node:
+        output += str(node.data) + " "
+        node = node.next
+      return output
+
+    # method to find the length of a linked list
+    def __len__(self):
+      current = self.head
+      count = 0
+      if current != None:
+        count += 1
+        while current.next != None:
+          count += 1
+          current = current.next
+      return count
+
     # method to insert a node at the beginning of a linked list
     def insert(self, data):
       new_node = Node(data)
@@ -57,22 +77,17 @@ class LinkedList:
             current = temp
         self.head = previous
 
-    # method to stringify the linked list
-    def __str__(self):
-      node = self.head
-      output = ""
-      while node:
-        output += str(node.data) + " "
-        node = node.next
-      return output
-
-    # method to find the length of a linked list
-    def __len__(self):
-      current = self.head
-      count = 0
-      if current != None:
-        count += 1
-        while current.next != None:
-          count += 1
-          current = current.next
-      return count  
+    # A method that takes a singly linked list and groups all odd nodes together followed by the even nodes
+    def oddEvenList(self):
+        if self.head == None:
+            return self.head
+        odd = self.head
+        even = self.head.next
+        evenHead = even
+        while even and even.next:
+            odd.next = even.next
+            odd = odd.next
+            even.next = odd.next
+            even = even.next
+        odd.next = evenHead
+        return self.head
