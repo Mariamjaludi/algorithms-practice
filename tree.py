@@ -33,7 +33,7 @@ class Node:
     def printInOrder(self):
         if self.left != None:
             self.left.printInOrder()
-        print(self.data)
+        print(self.value)
         if self.right != None:
             self.right.printInOrder()
 
