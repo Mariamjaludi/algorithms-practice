@@ -6,11 +6,13 @@ def isBalanced(str):
         paren = str[i]
         if paren == "(":
             s.append(paren)
-        elif s:
+        elif s and paren == ")":
             s.pop()
         else:
-            is_balanced = False
+          is_balanced = False
         i += 1
+    if s:
+      is_balanced = False
     return is_balanced
 
 str = "((()))"
