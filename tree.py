@@ -36,3 +36,13 @@ class Node:
         print(self.data)
         if self.right != None:
             self.right.printInOrder()
+
+    def bfs(self):
+        q = deque([self])
+        while q:
+            val = q.pop()
+            print(val.value)
+            if val.left:
+                q.appendleft(val.left)
+            if val.right:
+                q.appendleft(val.right)
