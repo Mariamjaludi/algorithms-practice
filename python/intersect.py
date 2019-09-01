@@ -1,3 +1,5 @@
+# Given two arrays, write a function to compute their intersection.
+
 class Solution(object):
     def intersect(self, nums1, nums2):
         """
@@ -20,4 +22,3 @@ class Solution(object):
             elif nums1[i] < nums2[j]:
                 i += 1
         return ans
-          
