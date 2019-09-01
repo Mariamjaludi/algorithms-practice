@@ -1,3 +1,9 @@
+# A valid parentheses string is either empty (""), "(" + A + ")", or A + B, where A and B are valid parentheses strings, and + represents string concatenation.
+# For example, "", "()", "(())()", and "(()(()))" are all valid parentheses strings.
+# A valid parentheses string S is primitive if it is nonempty, and there does not exist a way to split it into S = A+B, with A and B nonempty valid parentheses strings.
+# Given a valid parentheses string S, consider its primitive decomposition: S = P_1 + P_2 + ... + P_k, where P_i are primitive valid parentheses strings.
+# Return S after removing the outermost parentheses of every primitive string in the primitive decomposition of S.
+
 class Solution(object):
     def removeOuterParentheses(self, S):
         """
@@ -19,7 +25,7 @@ class Solution(object):
                 # we append to the array everything in S from the start + 1 (because we want to get rid of the outer open parenthesis)
                 # until the element before i (i - 1), because we want to get rid of the outer closing parenthesis.
                 solution.append(S[start+1:i])
-                # then we set start to just after i. 
+                # then we set start to just after i.
                 start = i+1
             i += 1
         return "".join(solution)
