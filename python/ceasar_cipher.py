@@ -6,5 +6,5 @@ def ceasarCipherEncryptor(string, key):
         if uniVal <= 122:
             ans.append(chr(uniVal))
         else:
-            ans.append(chr(96 + uniVal%122))
-    return ''.join(ans)            
+            ans.append(chr(96 + uniVal % 122))
+    return ''.join(ans)

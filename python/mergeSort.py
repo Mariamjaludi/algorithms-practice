@@ -30,7 +30,7 @@ def mergeSortedArrays(leftHalf, rightHalf):
         k += 1
     return sortedArray
 
-################################################################################
+#  #############################################################################
 
 
 # second method O(nlog(n)) time, O(n) space
