@@ -2,8 +2,8 @@ def invertBinaryTreeRecursive(tree):
     if tree is None:
         return
     swapLeftAndRight(tree)
-    invertBinaryTree(tree.left)
-    invertBinaryTree(tree.right)
+    invertBinaryTreeRecursive(tree.left)
+    invertBinaryTreeRecursive(tree.right)
     return tree
 
 
