@@ -1,4 +1,4 @@
-def invertBinaryTree(tree):
+def invertBinaryTreeRecursive(tree):
     if tree is None:
         return
     swapLeftAndRight(tree)
