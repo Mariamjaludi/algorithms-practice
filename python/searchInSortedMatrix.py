@@ -7,7 +7,7 @@
 # contained in the matrix.
 
 # sample input:
-input = [
+matrix = [
     [1, 4, 7, 12, 15, 1000],
     [2, 5, 19, 31, 32, 1001],
     [3, 8, 24, 33, 35, 1002],
