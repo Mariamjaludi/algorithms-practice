@@ -1,7 +1,44 @@
 # board is a 2D matrix, words is a list of strings
 def boggleBoard(board, words):
 
+    # add all the words to the tree
+    trie = Trie()
+    for word in words:
+        trie.addWord(word)
 
+    # hash that will hold found words
+    finalWords = {}
+
+    # create our visited board:
+    visited = [[False for letter in row] for row in board]
+
+    # traverse the whole board
+    for i in range(len(board)):
+        for j in range(len(board[0])):
+            explore(i, j, trie.root, visited, finalWords)
+    return list(finalWords.keys())
+
+def explore(i, j, board, trieNode, visited, finalWords):
+    # if the current node has been visited, go back
+    if visited[i][j]:
+        return
+    letter = board[i][j]
+    # if the letter is not in the trie node, return
+    if letter not in trieNode:
+        return
+    visited[i][j] = True
+    trieNode = trieNode[letter]
+
+    # if we have reached the end of a word and we find a *, store the word
+    if "*" in trieNode:
+        finalWords[trieNode["*"]] = True
+
+    # if our letter was found at the trieNode, we get its neighbors and explore them
+    neighbors = getNeighbors(i, j, board)
+    for neighbor in neighbors:
+        explore(neighbor[0], neighbor[1], board, trieNode, visited, finalWords)
+
+    visited[i][j] = False
 
 # gets all the neighboring nodes of the current node
 # takes in current node's location and the board matrix
@@ -39,7 +76,7 @@ def getNeighbors(i, j, board):
     if j < len(board[0] - 1):
         # append node to the right (same row)
         neighbors.append([i, j + 1])
-    return neighbors    
+    return neighbors
 
 
 class Trie:
