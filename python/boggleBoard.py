@@ -38,6 +38,7 @@ def explore(i, j, board, trieNode, visited, finalWords):
     for neighbor in neighbors:
         explore(neighbor[0], neighbor[1], board, trieNode, visited, finalWords)
 
+    # uncheck the visited after we have explored a node
     visited[i][j] = False
 
 # gets all the neighboring nodes of the current node
