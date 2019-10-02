@@ -1,20 +1,24 @@
+# board is a 2D matrix, words is a list of strings
+def boggleBoard(board, words):
+
+
+
+
+
+
+
 class Trie:
-    def __init__(self, stringArr):
+    def __init__(self):
         self.root = {}
         self.endSymbol = "*"
-        self.populateTrie(stringArr)
 
-    def populateTrie(self, stringArr):
-        for string in range(len(stringArr)):
-            self.insertSubstringStartingAt(string)
-
-    def insertSubstringStartingAt(self, string):
+    def addWord(self, word):
         node = self.root
-        for i in range(len(string)):
-            if string[i] not in node:
-                node[string[i]] = {}
-            node = node[string[i]]
-        node[self.endSymbol] = string
+        for letter in word:
+            if letter not in node:
+                node[letter] = {}
+            node = node[letter]
+        node[self.endSymbol] = word
 
     def contains(self, string):
         node = self.root
