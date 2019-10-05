@@ -14,6 +14,28 @@
 # literatureText: a string representing the block of text,
 # wordsToExclude: a list of strings representing the commonly used words to be
 # excluded while analyzing the word frequency.
-
+import re
 literatureText = "Jack and Jill went to the market to buy bread and cheese. Cheese is Jack’s and Jill’s favorite food."
 wordsToExclude = ['and', 'he', 'the', 'to', 'is', "Jack", "Jill"]
+
+def mostCommonWords(literatureText, wordsToExclude):
+    s = re.sub(r'[^\w\s]',' ', literatureText)
+    sArr = s.split(" ")
+    words = {}
+    for word in sArr:
+        if word in wordsToExclude or word == "":
+            continue
+        if word.lower() in words:
+            words[word.lower()] += 1
+        else:
+            words[word.lower()] = 1
+
+    countM = max(words.values())
+    winner = []
+    for word, count in words.items():
+        if count == countM:
+            winner.append(word)
+
+    return winner
+
+print(mostCommonWords(literatureText, wordsToExclude))
