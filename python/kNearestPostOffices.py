@@ -9,7 +9,32 @@
 # much smaller than the given number of post offices.
 
 you = [0, 0]
-post_offices = [[-16, 5], [-1, 2], [4, 3], [10, -2], [0, 3], [-5, -9]]
+post_offices = [
+    [-16, 5],
+    [-1, 2],
+    [4, 3],
+    [10, -2],
+    [0, 3],
+    [-5, -9]
+    ]
 k = 3
 
 def nearestPO(you, post_offices, k):
+    dPO = {}
+    for po in post_offices:
+        d = euclideanD(you, po)
+        dPO[d] = po
+    distances = [key for key in dPO.keys()]
+    distances.sort()
+    ans = []
+    for i in range(k):
+        ans.append(dPO[distances[i]])
+    return ans
+
+
+def euclideanD(you, postOffice):
+    m, n = you
+    p, q = postOffice
+    return int((((m - p) ** 2) +((n - q) ** 2)) ** (1/2) )
+
+print(nearestPO(you, post_offices, k))
