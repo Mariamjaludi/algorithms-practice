@@ -20,6 +20,9 @@ post_offices = [
 k = 3
 
 def nearestPO(you, post_offices, k):
+    if len(post_offices) == 0 or k == 0:
+        return []
+        
     dPO = {}
     for po in post_offices:
         d = euclideanD(you, po)
