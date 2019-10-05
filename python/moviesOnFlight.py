@@ -16,12 +16,12 @@ def movies(movie_duration, d):
         return []
 
     maxMovietime = d - 30
-    movie_duration.sort()
+    movie_duration.sort()  #O(nlogn)
     left = 0
     right = len(movie_duration) - 1
-    
-    dec = 0
 
+    dec = 0
+    # O(n*(d - 30))
     while left < right:
         currentSum = movie_duration[left] + movie_duration[right]
         if currentSum == maxMovietime + dec:
