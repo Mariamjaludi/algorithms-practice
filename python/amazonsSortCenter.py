@@ -16,18 +16,24 @@
 # You cannot pick up one package twice.
 # If you have multiple pairs, select the pair with the largest package.
 
-truckSpace = 90
+truckSpace = 80
 packagesSpace = [1, 10, 25, 35, 60]
 
 def packages(truckSpace, pSpace):
-    tS = truckSpace - 30
+    tS = truckSpace - 30  # 50
     sums = {}
-    for i in range(len(pSpace)):
-        potentialMatch = tS - pSpace[i]
-        if potentialMatch in sums:
-            return sorted([i, sums[potentialMatch]])
-        else:
-            sums[pSpace[i]] = i
+    matched = False
+    while not matched:
+        for i in range(len(pSpace)):
+            print("current:", pSpace[i])
+            print("tS", tS)
+            potentialMatch = tS - pSpace[i]
+            if potentialMatch in sums:
+                matched = True
+                return sorted([sums[potentialMatch], i])
+            else:
+                sums[pSpace[i]] = i
+        tS -= 1
     return []
 
 
