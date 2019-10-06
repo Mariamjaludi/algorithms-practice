@@ -25,6 +25,8 @@ class MinHeap:
         top = self.heapList[0]
         last = self.heapList[-1]
         self.heapList[0] = last
+        self.heapList.pop()
+        self.length -= 1
         self.bubbleDown()
         return top
 
